@@ -1,0 +1,32 @@
+<html>
+    <h1>Chat do UOL</h1>
+
+    <ul>
+    </ul>
+
+    <form action="">
+        <input class="chat_message" type="text">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io()
+
+        // Mensagem retornada pelo Server
+        socket.on('SERVER_SENDMESSAGE', (dadosDoServer) => {
+            console.log('CHEGUEI AQUI' + dadosDoServer)
+            const ul = document.querySelector('ul');
+            ul.innerHTML += `<li>${dadosDoServer}</li>`
+        });
+
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            // Mensagem emitida pelo CLIENTE
+            socket.emit(
+                'CLIENT_SENDMESSAGE', 
+                document.querySelector('.chat_message').value
+            )
+        });
+    </script>
+</html>

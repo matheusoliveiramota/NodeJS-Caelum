@@ -1,0 +1,9 @@
++-----------+---------------+------+-----+---------+----------------+
+| Field     | Type          | Null | Key | Default | Extra          |
++-----------+---------------+------+-----+---------+----------------+
+| id        | int(11)       | NO   | PRI | NULL    | auto_increment |
+| titulo    | varchar(255)  | YES  |     | NULL    |                |
+| descricao | text          | YES  |     | NULL    |                |
+| autor     | text          | YES  |     | NULL    |                |
+| preco     | decimal(10,2) | YES  |     | NULL    |                |
++-----------+---------------+------+-----+---------+----------------+
